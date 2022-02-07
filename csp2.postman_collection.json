@@ -91,7 +91,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDBmMWUxNDE3NDM1M2ViYjc1YjA5MSIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNjQ0MjMzNjg1fQ.0dECkScqe-4c77DHDQh9-VizqnoPifPw9wzOBNNZt4Q",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDBmMWUxNDE3NDM1M2ViYjc1YjA5MSIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNjQ0MjUwMDkxfQ.Rh4USh8mINYXW1yiUBEmq2ytT8weOnh_xt7wckiGvmI",
 							"type": "string"
 						}
 					]
@@ -100,7 +100,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\": \"Should not push through\",\n    \"description\": \"Rechargeable\",\n    \"price\": 10000\n}",
+					"raw": "{\n    \"name\": \"Monki: Faux Croc Purse\",\n    \"description\": \"A supercute card case in shape of a cloud, featuring faux croc fabric with a zip opening for easy access to your cash and cards. Attach as keychain or directly to your purse. Go cute!\",\n    \"price\": 500\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -137,7 +137,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "localhost:3001/api/products/620102fe2ca56f2cba7f6aa0",
+					"raw": "localhost:3001/api/products/620132adc0a8afaf76a01f96",
 					"host": [
 						"localhost"
 					],
@@ -145,7 +145,7 @@
 					"path": [
 						"api",
 						"products",
-						"620102fe2ca56f2cba7f6aa0"
+						"620132adc0a8afaf76a01f96"
 					]
 				}
 			},
@@ -174,11 +174,21 @@
 		{
 			"name": "Update a Product by Id",
 			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDBmYWZlZGE0M2RhODg5OWQ5YzdlNCIsImVtYWlsIjoiZ3Vlc3RAZ21haWwuY29tIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTY0NDI1MDY4M30.4oSnKUCvPMlwQQQBqQF3ZOuR-ZwS_hEJikOqEzwjiE0",
+							"type": "string"
+						}
+					]
+				},
 				"method": "PUT",
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"name\": \"Should not push through version3\",\n    \"description\": \"Rechargeable\",\n    \"price\": 10000\n}",
+					"raw": "{\n    \"name\": \"ON-SALE: Monki:Long-sleeve mesh top\",\n    \"description\": \"A long-sleeve mesh top with lettuce hemlines and seam details.\",\n    \"price\": 500\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -186,7 +196,7 @@
 					}
 				},
 				"url": {
-					"raw": "localhost:3001/api/products/620102fe2ca56f2cba7f6aa0",
+					"raw": "localhost:3001/api/products/620132adc0a8afaf76a01f96",
 					"host": [
 						"localhost"
 					],
@@ -194,7 +204,7 @@
 					"path": [
 						"api",
 						"products",
-						"620102fe2ca56f2cba7f6aa0"
+						"620132adc0a8afaf76a01f96"
 					]
 				}
 			},
@@ -208,7 +218,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDBmMWUxNDE3NDM1M2ViYjc1YjA5MSIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNjQ0MjM1NTU0fQ.54vkNlaQ1BpD-VFgmLHlXvbjzmHmubn1zglVdzz10xw",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDBmYWZlZGE0M2RhODg5OWQ5YzdlNCIsImVtYWlsIjoiZ3Vlc3RAZ21haWwuY29tIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTY0NDI1MDY4M30.4oSnKUCvPMlwQQQBqQF3ZOuR-ZwS_hEJikOqEzwjiE0",
 							"type": "string"
 						}
 					]
@@ -216,7 +226,7 @@
 				"method": "PUT",
 				"header": [],
 				"url": {
-					"raw": "localhost:3001/api/products/620102fe2ca56f2cba7f6aa0/archive",
+					"raw": "localhost:3001/api/products/620131d0c0a8afaf76a01f8c/archive",
 					"host": [
 						"localhost"
 					],
@@ -224,7 +234,7 @@
 					"path": [
 						"api",
 						"products",
-						"620102fe2ca56f2cba7f6aa0",
+						"620131d0c0a8afaf76a01f8c",
 						"archive"
 					]
 				}
@@ -239,7 +249,7 @@
 					"bearer": [
 						{
 							"key": "token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDBmMWUxNDE3NDM1M2ViYjc1YjA5MSIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwiaXNBZG1pbiI6dHJ1ZSwiaWF0IjoxNjQ0MjM3MjY2fQ.CdmR4QE7AQu3CnAxChloRU0rMZYXrv0yzovpj9zJnNI",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYyMDBmYWZlZGE0M2RhODg5OWQ5YzdlNCIsImVtYWlsIjoiZ3Vlc3RAZ21haWwuY29tIiwiaXNBZG1pbiI6ZmFsc2UsImlhdCI6MTY0NDI1MDY4M30.4oSnKUCvPMlwQQQBqQF3ZOuR-ZwS_hEJikOqEzwjiE0",
 							"type": "string"
 						}
 					]
@@ -247,7 +257,7 @@
 				"method": "PUT",
 				"header": [],
 				"url": {
-					"raw": "localhost:3001/api/products/620102fe2ca56f2cba7f6aa0/activate",
+					"raw": "localhost:3001/api/products/620131a7c0a8afaf76a01f8a/activate",
 					"host": [
 						"localhost"
 					],
@@ -255,7 +265,7 @@
 					"path": [
 						"api",
 						"products",
-						"620102fe2ca56f2cba7f6aa0",
+						"620131a7c0a8afaf76a01f8a",
 						"activate"
 					]
 				}

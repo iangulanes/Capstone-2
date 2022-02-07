@@ -64,6 +64,7 @@ module.exports.getProduct = (params) => {
 
 //UPDATE A PRODUCT (ADMIN ONLY)
 module.exports.updateProduct = (id, reqBody) => {
+	
 	const {name, description, price} = reqBody
 
 	let updatedProduct = {
@@ -71,6 +72,7 @@ module.exports.updateProduct = (id, reqBody) => {
 		description: description,
 		price: price
 	}
+	
 	return Product.findByIdAndUpdate (id, updatedProduct, {new: true}).then ((result, error) => {
 		if (error) {
 			return error
