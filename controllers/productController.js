@@ -11,7 +11,7 @@ module.exports.getAll = () => {
 if (result !==null){
 			return result
 		} else {
-			return "Hello"
+			return result
 		}
 	})
 }
@@ -29,6 +29,7 @@ module.exports.getAllActive = (reqBody) => {
 
 
 //ADD A PRODUCT (ADMIN ONLY)
+/*
 module.exports.addProduct = (reqBody) => {
 	let newProduct = new Product ({
 		name: reqBody.name,
@@ -43,7 +44,29 @@ module.exports.addProduct = (reqBody) => {
 		}
 	})
 }
+*/
 
+//ADD A PRODUCT (ADMIN ONLY, do not accept duplicate product.)
+module.exports.addProduct = (reqBody) => {
+	return Product.findOne ({name: reqBody.name}).then ((result, error) => {
+		if (result !== null && result.name == reqBody.name) {
+			return 'Duplicate product found!'
+		} else {
+			let newProduct = new Product ({
+				name: reqBody.name,
+				description: reqBody.description,
+				price: reqBody.price
+			})
+			return newProduct.save ().then ((result, error) => {
+				if (error) {
+					return false
+				} else {
+					return 'New product successfully added.'
+				}
+			})
+		}
+	})
+}
 
 
 //GET A SPECIFIC PRODUCT
@@ -87,10 +110,10 @@ module.exports.updateProduct = (id, reqBody) => {
 module.exports.archiveProduct = (params) => {
 	return Product.findByIdAndUpdate(params, {isActive: false}, ).then((result, error) => {
 		if(result == null){
-			return `Product not existing`
+			return `Product not existing.`
 		} else {
 			if(result){
-				return true
+				return "Product Deactivated."
 			} else {
 				return false
 			}
@@ -106,7 +129,7 @@ module.exports.activateProduct = (params) => {
 			return `Product not existing`
 		} else {
 			if(result){
-				return true
+				return "Product Activated."
 			} else {
 				return false
 			}
@@ -114,3 +137,21 @@ module.exports.activateProduct = (params) => {
 	})
 }
 
+
+//DELETE A PRODUCT (Admin Only)
+module.exports.deleteProduct = (name) => {
+
+	//look for matching document in the database && delete the matching document
+	return Product.findOneAndDelete({name: name}).then( (result, error) => {
+
+		if(result == null){
+			return `Product not existing.`
+		} else {
+			if(result){
+				return `Product successfully deleted.`
+			} else {
+				return error
+			}
+		}
+	})
+}

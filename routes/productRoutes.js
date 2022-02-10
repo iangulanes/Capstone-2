@@ -31,9 +31,9 @@ const productController = require ("../controllers/productController");
 
 router.post("/", auth.verify, (req, res) => {
 
-    const payload = auth.decode(req.headers.authorization);
+    const userData= auth.decode(req.headers.authorization);
 
-    if (payload.isAdmin) {
+    if (userData.isAdmin) {
         productController.addProduct(req.body).then((result) => res.send(result));
     } else {
          res.send("Unauthorized User.");
@@ -50,9 +50,9 @@ router.get ("/:productId", (req, res) => {
 //UPDATE A PRODUCT (ADMIN ONLY)
 router.put ("/:productId", auth.verify, (req, res) => {
 
-   const payload = auth.decode(req.headers.authorization);
+   const userData= auth.decode(req.headers.authorization);
 
-   if (payload.isAdmin) {
+   if (userData.isAdmin) {
       productController.updateProduct (req.params.productId, req.body). then (resultFromController => res.send (resultFromController))
    } else {
          res.send("Unauthorized User.");
@@ -63,9 +63,9 @@ router.put ("/:productId", auth.verify, (req, res) => {
 //ARCHIVE A PRODUCT (ADMIN ONLY)
 router.put ("/:productId/archive", auth.verify, (req, res) => {
 
-   const payload = auth.decode(req.headers.authorization);
+   const userData = auth.decode(req.headers.authorization);
 
-   if (payload.isAdmin) {
+   if (userData.isAdmin) {
    productController.archiveProduct (req.params.productId). then (resultFromController => res.send (resultFromController))      
    } else {
          res.send("Unauthorized User.");
@@ -76,15 +76,28 @@ router.put ("/:productId/archive", auth.verify, (req, res) => {
 //UNARCHIVE OR ACTIVATE A PRODUCT (ADMIN ONLY)
 router.put ("/:productId/activate", auth.verify, (req, res) => {
 
-   const payload = auth.decode(req.headers.authorization);
+   const userData = auth.decode(req.headers.authorization);
    
-   if (payload.isAdmin) {
+   if (userData.isAdmin) {
    productController.activateProduct (req.params.productId). then (resultFromController => res.send (resultFromController))      
    } else {
          res.send("Unauthorized User.");      
       }
 })
 
+
+
+//DELETE A PRODUCT
+router.delete("/deleteProduct", auth.verify, (req, res) => {
+
+   const userData = auth.decode(req.headers.authorization);
+
+   if (userData.isAdmin){
+   productController.deleteProduct(req.body.name).then(result => res.send(result))      
+   } else {
+      res.send ("Unauthorized User.")
+   }
+}) 
 
 
 module.exports = router;

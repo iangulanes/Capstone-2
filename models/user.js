@@ -17,9 +17,9 @@ const userSchema = new mongoose.Schema({
 		{
 			products : [
 				{
-					productName : {
+					productId: {
 						type: String,
-						required : [true, "Product name is required"]
+						required : [true, "Product ID is required"]
 					},
 					quantity : {
 						type: Number,
