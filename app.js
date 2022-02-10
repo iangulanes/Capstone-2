@@ -5,7 +5,7 @@ const app = express();
 const mongoose = require ('mongoose');
 const cors = require ('cors');
 
-const PORT = 3001;
+let PORT = 3001;
 
 app.use (express.json());
 app.use (express.urlencoded ({extended:true}));
@@ -35,4 +35,4 @@ db.once('open', () => console.log ('Connected to Database'));
 app.use('/api/users', userRoutes )
 app.use ('/api/products', productRoutes)
 
-app.listen(PORT, () => console.log (`Server is running at ${PORT}`));
+app.listen(process.env.PORT || 3001, () => console.log (`Server is running at ${PORT}`));
