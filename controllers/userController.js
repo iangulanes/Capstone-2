@@ -154,7 +154,7 @@ module.exports.getAllOrders = async (userData) => {
 
             for (let i = 0; i < allOrders.length; i++) {
                 if (allOrders[i].orders.length >= 1) {
-                    allActiveOrders.push(allOrders)
+                    allActiveOrders.push(allOrders[i])
                 }
             }
 
