@@ -33,6 +33,7 @@ router.get ("/", auth.verify, (req, res) => {
 
 
 //CHECKOUT ORDERS (regular user)
+//b146
 /*
 router.post("/checkout", auth.verify, (req, res) => {
     const userData = auth.decode(req.headers.authorization)

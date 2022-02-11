@@ -114,6 +114,7 @@ module.exports.checkout = (userId, cart) => {
 
 
 //CHECKOUT ORDERS (regular user)
+//b146
 /*
 module.exports.checkout = async (userData, cart) => {
         //verification
