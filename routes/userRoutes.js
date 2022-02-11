@@ -32,16 +32,17 @@ router.get ("/", auth.verify, (req, res) => {
 })
 
 
-// //CHECKOUT ORDERS (regular user)
-// router.post("/checkout", auth.verify, (req, res) => {
-//     const userData = auth.decode(req.headers.authorization)
+//CHECKOUT ORDERS (regular user)
+/*
+router.post("/checkout", auth.verify, (req, res) => {
+    const userData = auth.decode(req.headers.authorization)
 
-//     userController.checkout(userData, req.body)
-//         .then(result => {
-//             res.send(result.latestOrder)
-//         });
-// })
-
+    userController.checkout(userData, req.body)
+        .then(result => {
+            res.send(result.latestOrder)
+        });
+})
+*/
 
 //CHECKOUT ORDERS (regular user)
 //Sir Alan

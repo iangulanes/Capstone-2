@@ -80,7 +80,6 @@ module.exports.getAllUsers = () => {
 }
 
 
-
 //CHECKOUT ORDERS (regular user)
 //Sir Alan
 module.exports.checkout = (userId, cart) => {
@@ -106,7 +105,7 @@ module.exports.checkout = (userId, cart) => {
 
 						})
 					})
-					return true
+					return "Successfully added to cart."
 				}
 			})
 		}
@@ -114,35 +113,36 @@ module.exports.checkout = (userId, cart) => {
 }
 
 
-// //CHECKOUT ORDERS (regular user)
-// module.exports.checkout = async (userData, cart) => {
-//         //verification
-//         if (userData.isAdmin == false) {
+//CHECKOUT ORDERS (regular user)
+/*
+module.exports.checkout = async (userData, cart) => {
+        //verification
+        if (userData.isAdmin == false) {
 
-//             //save newOrder from user to database
-//             const newOrder = await User.findByIdAndUpdate(userData.id, { $addToSet: { orders: cart } }, { new: true })
+            //save newOrder from user to database
+            const newOrder = await User.findByIdAndUpdate(userData.id, { $addToSet: { orders: cart } }, { new: true })
 
-//             //get latest order from user
-//             const latestOrder = newOrder.orders[newOrder.orders.length - 1]
-//             const orderId = latestOrder._id
+            //get latest order from user
+            const latestOrder = newOrder.orders[newOrder.orders.length - 1]
+            const orderId = latestOrder._id
 
-//             let productId
-//             let productDetail
-//             for (let i = 0; i < cart.products.length; i++) {
-//                 //find Product using product ID from cart.products[0].productId
-//                 productId = cart.products[i].productId
-//                 //save latest order id from user to Product.orders Array
-//                 productDetail = await Product.findByIdAndUpdate(productId,
-//                     { $addToSet: { orders: [{ orderId }] } }, { new: true })
-//             }
+            let productId
+            let productDetail
+            for (let i = 0; i < cart.products.length; i++) {
+                //find Product using product ID from cart.products[0].productId
+                productId = cart.products[i].productId
+                //save latest order id from user to Product.orders Array
+                productDetail = await Product.findByIdAndUpdate(productId,
+                    { $addToSet: { orders: [{ orderId }] } }, { new: true })
+            }
 
-//             return {
-//                 "productDetails": productDetail,
-//                 "latestOrder": latestOrder
-//             }
-//         } return "Unauthorized User."
-//     }
-
+            return {
+                "productDetails": productDetail,
+                "latestOrder": latestOrder
+            }
+        } return "Unauthorized User."
+    }
+*/
 
 //GET ALL ORDERS (ADMIN ONLY)
 module.exports.getAllOrders = async (userData) => {
@@ -153,7 +153,7 @@ module.exports.getAllOrders = async (userData) => {
 
             for (let i = 0; i < allOrders.length; i++) {
                 if (allOrders[i].orders.length >= 1) {
-                    allActiveOrders.push(allOrders[i].orders)
+                    allActiveOrders.push(allOrders)
                 }
             }
 
@@ -161,8 +161,6 @@ module.exports.getAllOrders = async (userData) => {
 
         } return "Unauthorized User."
     }
-
-
 
 
 //GET MY ORDERS (logged in user only, non-admin)
@@ -191,7 +189,6 @@ module.exports.setAsAdmin = (params) => {
 		}
 	})
 }
-
 
 
 //UPDATE USER DETAILS
